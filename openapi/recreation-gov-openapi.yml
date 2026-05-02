@@ -1,0 +1,370 @@
+openapi: 3.0.3
+info:
+  title: Recreation Information Database (RIDB) API
+  description: >-
+    The Recreation Information Database (RIDB) API provides programmatic access
+    to information about federal recreation areas, facilities, campsites, tours,
+    permits, events, and activities across the United States. RIDB is the
+    authoritative federal source for recreation data managed by Recreation.gov.
+  version: '1.0'
+  contact:
+    name: Recreation.gov RIDB Support
+    url: https://ridb.recreation.gov/landing
+  license:
+    name: U.S. Government Public Domain
+servers:
+  - url: https://ridb.recreation.gov/api/v1
+    description: RIDB API v1
+security:
+  - apiKey: []
+paths:
+  /activities:
+    get:
+      summary: List activities
+      description: Returns a paginated list of recreation activity types (e.g., camping, hiking, fishing).
+      operationId: listActivities
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of activities
+  /activities/{id}:
+    get:
+      summary: Get activity
+      operationId: getActivity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: An activity record
+  /facilities:
+    get:
+      summary: List facilities
+      description: Returns a paginated list of federal recreation facilities (campgrounds, day-use areas, visitor centers, etc.).
+      operationId: listFacilities
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: state
+          in: query
+          schema:
+            type: string
+        - name: activity
+          in: query
+          schema:
+            type: string
+        - name: lastupdated
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: A list of facilities
+  /facilities/{id}:
+    get:
+      summary: Get facility
+      operationId: getFacility
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A facility record
+  /facilities/{id}/activities:
+    get:
+      summary: List activities for a facility
+      operationId: listFacilityActivities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Activities for the facility
+  /facilities/{id}/campsites:
+    get:
+      summary: List campsites for a facility
+      operationId: listFacilityCampsites
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Campsites for the facility
+  /facilities/{id}/media:
+    get:
+      summary: List media for a facility
+      operationId: listFacilityMedia
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Media items for the facility
+  /facilities/{id}/links:
+    get:
+      summary: List links for a facility
+      operationId: listFacilityLinks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Web links for the facility
+  /campsites:
+    get:
+      summary: List campsites
+      operationId: listCampsites
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of campsites
+  /campsites/{id}:
+    get:
+      summary: Get campsite
+      operationId: getCampsite
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A campsite record
+  /recareas:
+    get:
+      summary: List recreation areas
+      operationId: listRecAreas
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: state
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of recreation areas
+  /recareas/{id}:
+    get:
+      summary: Get recreation area
+      operationId: getRecArea
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A recreation area record
+  /recareas/{id}/activities:
+    get:
+      summary: List activities for a recreation area
+      operationId: listRecAreaActivities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Activities for the recreation area
+  /recareas/{id}/facilities:
+    get:
+      summary: List facilities for a recreation area
+      operationId: listRecAreaFacilities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Facilities for the recreation area
+  /recareas/{id}/media:
+    get:
+      summary: List media for a recreation area
+      operationId: listRecAreaMedia
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Media items for the recreation area
+  /tours:
+    get:
+      summary: List tours
+      operationId: listTours
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of tours
+  /tours/{id}:
+    get:
+      summary: Get tour
+      operationId: getTour
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A tour record
+  /permitentrances:
+    get:
+      summary: List permit entrances
+      operationId: listPermitEntrances
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of permit entrances
+  /permitentrances/{id}:
+    get:
+      summary: Get permit entrance
+      operationId: getPermitEntrance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A permit entrance record
+  /events:
+    get:
+      summary: List events
+      operationId: listEvents
+      parameters:
+        - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of events
+  /events/{id}:
+    get:
+      summary: Get event
+      operationId: getEvent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: An event record
+  /media:
+    get:
+      summary: List media
+      operationId: listMedia
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of media items
+  /links:
+    get:
+      summary: List links
+      operationId: listLinks
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of links
+  /organizations:
+    get:
+      summary: List organizations
+      description: Federal organizations that manage recreation resources (NPS, USFS, BLM, USACE, etc.).
+      operationId: listOrganizations
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of organizations
+  /organizations/{id}:
+    get:
+      summary: Get organization
+      operationId: getOrganization
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: An organization record
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: apikey
+  parameters:
+    Query:
+      name: query
+      in: query
+      description: Free-text search query
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return (max 50)
+      schema:
+        type: integer
+        default: 50
+        maximum: 50
+    Offset:
+      name: offset
+      in: query
+      description: Pagination offset
+      schema:
+        type: integer
+        default: 0
