@@ -1,0 +1,1059 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recreation Information Database (RIDB) API
+  description: The Recreation Information Database (RIDB) API provides programmatic access to information about federal recreation
+    areas, facilities, campsites, tours, permits, events, and activities across the United States. RIDB is the authoritative
+    federal source for recreation data managed by Recreation.gov.
+  tags:
+  - Recreation
+  - Gov
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: recreation-gov
+    baseUri: https://ridb.recreation.gov/api/v1
+    description: Recreation Information Database (RIDB) API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: apikey
+      value: '{{RECREATION_GOV_TOKEN}}'
+    resources:
+    - name: activities
+      path: /activities
+      operations:
+      - name: listactivities
+        method: GET
+        description: List activities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-id
+      path: /activities/{id}
+      operations:
+      - name: getactivity
+        method: GET
+        description: Get activity
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities
+      path: /facilities
+      operations:
+      - name: listfacilities
+        method: GET
+        description: List facilities
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+        - name: activity
+          in: query
+          type: string
+        - name: lastupdated
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities-id
+      path: /facilities/{id}
+      operations:
+      - name: getfacility
+        method: GET
+        description: Get facility
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities-id-activities
+      path: /facilities/{id}/activities
+      operations:
+      - name: listfacilityactivities
+        method: GET
+        description: List activities for a facility
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities-id-campsites
+      path: /facilities/{id}/campsites
+      operations:
+      - name: listfacilitycampsites
+        method: GET
+        description: List campsites for a facility
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities-id-media
+      path: /facilities/{id}/media
+      operations:
+      - name: listfacilitymedia
+        method: GET
+        description: List media for a facility
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: facilities-id-links
+      path: /facilities/{id}/links
+      operations:
+      - name: listfacilitylinks
+        method: GET
+        description: List links for a facility
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: campsites
+      path: /campsites
+      operations:
+      - name: listcampsites
+        method: GET
+        description: List campsites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: campsites-id
+      path: /campsites/{id}
+      operations:
+      - name: getcampsite
+        method: GET
+        description: Get campsite
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recareas
+      path: /recareas
+      operations:
+      - name: listrecareas
+        method: GET
+        description: List recreation areas
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recareas-id
+      path: /recareas/{id}
+      operations:
+      - name: getrecarea
+        method: GET
+        description: Get recreation area
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recareas-id-activities
+      path: /recareas/{id}/activities
+      operations:
+      - name: listrecareaactivities
+        method: GET
+        description: List activities for a recreation area
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recareas-id-facilities
+      path: /recareas/{id}/facilities
+      operations:
+      - name: listrecareafacilities
+        method: GET
+        description: List facilities for a recreation area
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recareas-id-media
+      path: /recareas/{id}/media
+      operations:
+      - name: listrecareamedia
+        method: GET
+        description: List media for a recreation area
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tours
+      path: /tours
+      operations:
+      - name: listtours
+        method: GET
+        description: List tours
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tours-id
+      path: /tours/{id}
+      operations:
+      - name: gettour
+        method: GET
+        description: Get tour
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: permitentrances
+      path: /permitentrances
+      operations:
+      - name: listpermitentrances
+        method: GET
+        description: List permit entrances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: permitentrances-id
+      path: /permitentrances/{id}
+      operations:
+      - name: getpermitentrance
+        method: GET
+        description: Get permit entrance
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: List events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: events-id
+      path: /events/{id}
+      operations:
+      - name: getevent
+        method: GET
+        description: Get event
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media
+      path: /media
+      operations:
+      - name: listmedia
+        method: GET
+        description: List media
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: links
+      path: /links
+      operations:
+      - name: listlinks
+        method: GET
+        description: List links
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organizations
+      path: /organizations
+      operations:
+      - name: listorganizations
+        method: GET
+        description: List organizations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organizations-id
+      path: /organizations/{id}
+      operations:
+      - name: getorganization
+        method: GET
+        description: Get organization
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: recreation-gov-rest
+    description: REST adapter for Recreation Information Database (RIDB) API.
+    resources:
+    - path: /activities
+      name: listactivities
+      operations:
+      - method: GET
+        name: listactivities
+        description: List activities
+        call: recreation-gov.listactivities
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/{id}
+      name: getactivity
+      operations:
+      - method: GET
+        name: getactivity
+        description: Get activity
+        call: recreation-gov.getactivity
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities
+      name: listfacilities
+      operations:
+      - method: GET
+        name: listfacilities
+        description: List facilities
+        call: recreation-gov.listfacilities
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities/{id}
+      name: getfacility
+      operations:
+      - method: GET
+        name: getfacility
+        description: Get facility
+        call: recreation-gov.getfacility
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities/{id}/activities
+      name: listfacilityactivities
+      operations:
+      - method: GET
+        name: listfacilityactivities
+        description: List activities for a facility
+        call: recreation-gov.listfacilityactivities
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities/{id}/campsites
+      name: listfacilitycampsites
+      operations:
+      - method: GET
+        name: listfacilitycampsites
+        description: List campsites for a facility
+        call: recreation-gov.listfacilitycampsites
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities/{id}/media
+      name: listfacilitymedia
+      operations:
+      - method: GET
+        name: listfacilitymedia
+        description: List media for a facility
+        call: recreation-gov.listfacilitymedia
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /facilities/{id}/links
+      name: listfacilitylinks
+      operations:
+      - method: GET
+        name: listfacilitylinks
+        description: List links for a facility
+        call: recreation-gov.listfacilitylinks
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /campsites
+      name: listcampsites
+      operations:
+      - method: GET
+        name: listcampsites
+        description: List campsites
+        call: recreation-gov.listcampsites
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /campsites/{id}
+      name: getcampsite
+      operations:
+      - method: GET
+        name: getcampsite
+        description: Get campsite
+        call: recreation-gov.getcampsite
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recareas
+      name: listrecareas
+      operations:
+      - method: GET
+        name: listrecareas
+        description: List recreation areas
+        call: recreation-gov.listrecareas
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recareas/{id}
+      name: getrecarea
+      operations:
+      - method: GET
+        name: getrecarea
+        description: Get recreation area
+        call: recreation-gov.getrecarea
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recareas/{id}/activities
+      name: listrecareaactivities
+      operations:
+      - method: GET
+        name: listrecareaactivities
+        description: List activities for a recreation area
+        call: recreation-gov.listrecareaactivities
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recareas/{id}/facilities
+      name: listrecareafacilities
+      operations:
+      - method: GET
+        name: listrecareafacilities
+        description: List facilities for a recreation area
+        call: recreation-gov.listrecareafacilities
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recareas/{id}/media
+      name: listrecareamedia
+      operations:
+      - method: GET
+        name: listrecareamedia
+        description: List media for a recreation area
+        call: recreation-gov.listrecareamedia
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /tours
+      name: listtours
+      operations:
+      - method: GET
+        name: listtours
+        description: List tours
+        call: recreation-gov.listtours
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /tours/{id}
+      name: gettour
+      operations:
+      - method: GET
+        name: gettour
+        description: Get tour
+        call: recreation-gov.gettour
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /permitentrances
+      name: listpermitentrances
+      operations:
+      - method: GET
+        name: listpermitentrances
+        description: List permit entrances
+        call: recreation-gov.listpermitentrances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /permitentrances/{id}
+      name: getpermitentrance
+      operations:
+      - method: GET
+        name: getpermitentrance
+        description: Get permit entrance
+        call: recreation-gov.getpermitentrance
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /events
+      name: listevents
+      operations:
+      - method: GET
+        name: listevents
+        description: List events
+        call: recreation-gov.listevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /events/{id}
+      name: getevent
+      operations:
+      - method: GET
+        name: getevent
+        description: Get event
+        call: recreation-gov.getevent
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /media
+      name: listmedia
+      operations:
+      - method: GET
+        name: listmedia
+        description: List media
+        call: recreation-gov.listmedia
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /links
+      name: listlinks
+      operations:
+      - method: GET
+        name: listlinks
+        description: List links
+        call: recreation-gov.listlinks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /organizations
+      name: listorganizations
+      operations:
+      - method: GET
+        name: listorganizations
+        description: List organizations
+        call: recreation-gov.listorganizations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /organizations/{id}
+      name: getorganization
+      operations:
+      - method: GET
+        name: getorganization
+        description: Get organization
+        call: recreation-gov.getorganization
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: recreation-gov-mcp
+    transport: http
+    description: MCP adapter for Recreation Information Database (RIDB) API for AI agent use.
+    tools:
+    - name: listactivities
+      description: List activities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listactivities
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getactivity
+      description: Get activity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getactivity
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfacilities
+      description: List facilities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listfacilities
+      with:
+        state: tools.state
+        activity: tools.activity
+        lastupdated: tools.lastupdated
+      inputParameters:
+      - name: state
+        type: string
+        description: state
+      - name: activity
+        type: string
+        description: activity
+      - name: lastupdated
+        type: string
+        description: lastupdated
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getfacility
+      description: Get facility
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getfacility
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfacilityactivities
+      description: List activities for a facility
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listfacilityactivities
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfacilitycampsites
+      description: List campsites for a facility
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listfacilitycampsites
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfacilitymedia
+      description: List media for a facility
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listfacilitymedia
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfacilitylinks
+      description: List links for a facility
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listfacilitylinks
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcampsites
+      description: List campsites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listcampsites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcampsite
+      description: Get campsite
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getcampsite
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrecareas
+      description: List recreation areas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listrecareas
+      with:
+        state: tools.state
+      inputParameters:
+      - name: state
+        type: string
+        description: state
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getrecarea
+      description: Get recreation area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getrecarea
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrecareaactivities
+      description: List activities for a recreation area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listrecareaactivities
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrecareafacilities
+      description: List facilities for a recreation area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listrecareafacilities
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrecareamedia
+      description: List media for a recreation area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listrecareamedia
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtours
+      description: List tours
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listtours
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettour
+      description: Get tour
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.gettour
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listpermitentrances
+      description: List permit entrances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listpermitentrances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpermitentrance
+      description: Get permit entrance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getpermitentrance
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listevents
+      description: List events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getevent
+      description: Get event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getevent
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listmedia
+      description: List media
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listmedia
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listlinks
+      description: List links
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listlinks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listorganizations
+      description: List organizations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.listorganizations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getorganization
+      description: Get organization
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recreation-gov.getorganization
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    RECREATION_GOV_TOKEN: RECREATION_GOV_TOKEN
