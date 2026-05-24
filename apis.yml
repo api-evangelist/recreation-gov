@@ -45,6 +45,8 @@ common:
   url: https://www.recreation.gov
 - type: Documentation
   url: https://ridb.recreation.gov/docs
+- type: LLMsTxt
+  url: https://www.recreation.gov/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
