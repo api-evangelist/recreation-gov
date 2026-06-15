@@ -1,0 +1,600 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recreation Information Database (RIDB) API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List activities",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/activities",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "Returns a paginated list of recreation activity types (e.g., camping, hiking, fishing)."
+    },
+    {
+      "info": {
+        "name": "Get activity",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/activities/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get activity"
+    },
+    {
+      "info": {
+        "name": "List facilities",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          },
+          {
+            "name": "state",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "activity",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "lastupdated",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns a paginated list of federal recreation facilities (campgrounds, day-use areas, visitor centers, etc.)."
+    },
+    {
+      "info": {
+        "name": "Get facility",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get facility"
+    },
+    {
+      "info": {
+        "name": "List activities for a facility",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities/:id/activities",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List activities for a facility"
+    },
+    {
+      "info": {
+        "name": "List campsites for a facility",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities/:id/campsites",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List campsites for a facility"
+    },
+    {
+      "info": {
+        "name": "List media for a facility",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities/:id/media",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List media for a facility"
+    },
+    {
+      "info": {
+        "name": "List links for a facility",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/facilities/:id/links",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List links for a facility"
+    },
+    {
+      "info": {
+        "name": "List campsites",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/campsites",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List campsites"
+    },
+    {
+      "info": {
+        "name": "Get campsite",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/campsites/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get campsite"
+    },
+    {
+      "info": {
+        "name": "List recreation areas",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/recareas",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          },
+          {
+            "name": "state",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List recreation areas"
+    },
+    {
+      "info": {
+        "name": "Get recreation area",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/recareas/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get recreation area"
+    },
+    {
+      "info": {
+        "name": "List activities for a recreation area",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/recareas/:id/activities",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List activities for a recreation area"
+    },
+    {
+      "info": {
+        "name": "List facilities for a recreation area",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/recareas/:id/facilities",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List facilities for a recreation area"
+    },
+    {
+      "info": {
+        "name": "List media for a recreation area",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/recareas/:id/media",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List media for a recreation area"
+    },
+    {
+      "info": {
+        "name": "List tours",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/tours",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List tours"
+    },
+    {
+      "info": {
+        "name": "Get tour",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/tours/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get tour"
+    },
+    {
+      "info": {
+        "name": "List permit entrances",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/permitentrances",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List permit entrances"
+    },
+    {
+      "info": {
+        "name": "Get permit entrance",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/permitentrances/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get permit entrance"
+    },
+    {
+      "info": {
+        "name": "List events",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/events",
+        "params": [
+          {
+            "name": "query",
+            "value": "",
+            "type": "query",
+            "description": "Free-text search query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List events"
+    },
+    {
+      "info": {
+        "name": "Get event",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/events/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get event"
+    },
+    {
+      "info": {
+        "name": "List media",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/media",
+        "params": [
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List media"
+    },
+    {
+      "info": {
+        "name": "List links",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/links",
+        "params": [
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "List links"
+    },
+    {
+      "info": {
+        "name": "List organizations",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/organizations",
+        "params": [
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Number of records to return (max 50)"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Pagination offset"
+          }
+        ]
+      },
+      "docs": "Federal organizations that manage recreation resources (NPS, USFS, BLM, USACE, etc.)."
+    },
+    {
+      "info": {
+        "name": "Get organization",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://ridb.recreation.gov/api/v1/organizations/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get organization"
+    }
+  ],
+  "bundled": true
+}
