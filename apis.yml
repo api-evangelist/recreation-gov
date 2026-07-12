@@ -41,6 +41,12 @@ apis:
       - type: OpenAPI
         url: openapi/recreation-gov-openapi.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/recreation-gov-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/recreation-gov-domain-security.yml
+  - type: Authentication
+    url: authentication/recreation-gov-authentication.yml
   - type: Website
     url: https://www.recreation.gov
   - type: Documentation
