@@ -41,6 +41,8 @@ apis:
       - type: OpenAPI
         url: openapi/recreation-gov-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/recreation-gov-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/recreation-gov-vulnerability-disclosure.yml
   - type: DomainSecurity
