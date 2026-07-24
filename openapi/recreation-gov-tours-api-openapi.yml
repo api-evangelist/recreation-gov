@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Recreation Information Database (RIDB) Activities Tours API
+  description: The Recreation Information Database (RIDB) API provides programmatic access to information about federal recreation areas, facilities, campsites, tours, permits, events, and activities across the United States. RIDB is the authoritative federal source for recreation data managed by Recreation.gov.
+  version: '1.0'
+  contact:
+    name: Recreation.gov RIDB Support
+    url: https://ridb.recreation.gov/landing
+  license:
+    name: U.S. Government Public Domain
+servers:
+- url: https://ridb.recreation.gov/api/v1
+  description: RIDB API v1
+security:
+- apiKey: []
+tags:
+- name: Tours
+paths:
+  /tours:
+    get:
+      summary: List tours
+      operationId: listTours
+      parameters:
+      - $ref: '#/components/parameters/Query'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of tours
+      tags:
+      - Tours
+  /tours/{id}:
+    get:
+      summary: Get tour
+      operationId: getTour
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A tour record
+      tags:
+      - Tours
+components:
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      description: Pagination offset
+      schema:
+        type: integer
+        default: 0
+    Query:
+      name: query
+      in: query
+      description: Free-text search query
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return (max 50)
+      schema:
+        type: integer
+        default: 50
+        maximum: 50
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: apikey
