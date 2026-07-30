@@ -5,9 +5,22 @@ description: >-
   information about recreational opportunities nationwide. The RIDB represents an authoritative source of information
   and services for millions of visitors to federal lands, historic sites, museums, and other attractions/resources.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/recreation-gov.png
 tags:
   - Recreation
   - Federal
@@ -19,27 +32,146 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/recreation-gov/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: recreation-gov:ridb-api
-    name: Recreation.gov RIDB API
-    description: >-
-      The Recreation Information Database (RIDB) API provides programmatic access to federal recreation data including
-      activities, facilities, campsites, recreation areas, tours, permit entrances, events, media, links, and managing
-      organizations. Authentication is via API key.
-    humanURL: https://ridb.recreation.gov/landing
-    baseURL: https://ridb.recreation.gov/api/v1
-    tags:
-      - Recreation
-      - Federal
-      - Camping
-      - Permits
-      - Facilities
-    properties:
-      - type: Documentation
-        url: https://ridb.recreation.gov/docs
-      - type: Signup
-        url: https://ridb.recreation.gov/profile
-      - type: OpenAPI
-        url: openapi/recreation-gov-openapi.yml
+- aid: recreation-gov:recreation-gov-activities-api
+  name: Recreation.gov Activities API
+  description: The Activities API from Recreation.gov — 2 operation(s) for activities.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-activities-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-campsites-api
+  name: Recreation.gov Campsites API
+  description: The Campsites API from Recreation.gov — 2 operation(s) for campsites.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Campsites
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-campsites-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-events-api
+  name: Recreation.gov Events API
+  description: The Events API from Recreation.gov — 2 operation(s) for events.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-events-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-facilities-api
+  name: Recreation.gov Facilities API
+  description: The Facilities API from Recreation.gov — 6 operation(s) for facilities.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Facilities
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-facilities-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-links-api
+  name: Recreation.gov Links API
+  description: The Links API from Recreation.gov — 1 operation(s) for links.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Links
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-links-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-media-api
+  name: Recreation.gov Media API
+  description: The Media API from Recreation.gov — 1 operation(s) for media.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-media-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-organizations-api
+  name: Recreation.gov Organizations API
+  description: The Organizations API from Recreation.gov — 2 operation(s) for organizations.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-permitentrances-api
+  name: Recreation.gov Permitentrances API
+  description: The Permitentrances API from Recreation.gov — 2 operation(s) for permitentrances.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Permitentrances
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-permitentrances-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-recareas-api
+  name: Recreation.gov Recareas API
+  description: The Recareas API from Recreation.gov — 5 operation(s) for recareas.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Recareas
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-recareas-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
+- aid: recreation-gov:recreation-gov-tours-api
+  name: Recreation.gov Tours API
+  description: The Tours API from Recreation.gov — 2 operation(s) for tours.
+  humanURL: https://ridb.recreation.gov/landing
+  baseURL: https://ridb.recreation.gov/api/v1
+  tags:
+  - Tours
+  properties:
+  - type: OpenAPI
+    url: openapi/recreation-gov-tours-api-openapi.yml
+  - type: Documentation
+    url: https://ridb.recreation.gov/docs
+  - type: Signup
+    url: https://ridb.recreation.gov/profile
 common:
   - type: AgenticAccess
     url: agentic-access/recreation-gov-agentic-access.yml
