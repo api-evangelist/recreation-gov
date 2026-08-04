@@ -1,0 +1,32 @@
+{
+  "provider": "recreation-gov",
+  "sources": [
+    "recreation-gov-activities-api-openapi.yml",
+    "recreation-gov-campsites-api-openapi.yml",
+    "recreation-gov-events-api-openapi.yml",
+    "recreation-gov-facilities-api-openapi.yml",
+    "recreation-gov-links-api-openapi.yml",
+    "recreation-gov-media-api-openapi.yml",
+    "recreation-gov-organizations-api-openapi.yml",
+    "recreation-gov-permitentrances-api-openapi.yml",
+    "recreation-gov-recareas-api-openapi.yml",
+    "recreation-gov-tours-api-openapi.yml"
+  ],
+  "outputs": [
+    "recreation-gov-activities-api-openapi.yml",
+    "recreation-gov-campsites-api-openapi.yml",
+    "recreation-gov-events-api-openapi.yml",
+    "recreation-gov-facilities-api-openapi.yml",
+    "recreation-gov-links-api-openapi.yml",
+    "recreation-gov-media-api-openapi.yml",
+    "recreation-gov-organizations-api-openapi.yml",
+    "recreation-gov-permitentrances-api-openapi.yml",
+    "recreation-gov-recareas-api-openapi.yml",
+    "recreation-gov-tours-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
