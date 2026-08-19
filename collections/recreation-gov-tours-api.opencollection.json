@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recreation Information Database (RIDB) Activities Tours API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/tours",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (max 50)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset"
+              }
+            ]
+          },
+          "docs": "List tours"
+        },
+        {
+          "info": {
+            "name": "Get tour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/tours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get tour"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

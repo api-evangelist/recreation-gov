@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recreation Information Database (RIDB) Activities Recareas API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recareas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List recreation areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/recareas",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (max 50)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List recreation areas"
+        },
+        {
+          "info": {
+            "name": "Get recreation area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/recareas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get recreation area"
+        },
+        {
+          "info": {
+            "name": "List activities for a recreation area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/recareas/:id/activities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List activities for a recreation area"
+        },
+        {
+          "info": {
+            "name": "List facilities for a recreation area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/recareas/:id/facilities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List facilities for a recreation area"
+        },
+        {
+          "info": {
+            "name": "List media for a recreation area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ridb.recreation.gov/api/v1/recareas/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List media for a recreation area"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
