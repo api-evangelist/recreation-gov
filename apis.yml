@@ -66,6 +66,8 @@ apis:
   humanURL: https://ridb.recreation.gov/landing
   baseURL: https://ridb.recreation.gov/api/v1
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -122,6 +124,8 @@ apis:
   humanURL: https://ridb.recreation.gov/landing
   baseURL: https://ridb.recreation.gov/api/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
