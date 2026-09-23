@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Recreation Information Database (RIDB) Activities Permitentrances API
+  title: Recreation Information Database (RIDB) Permitentrances API
   description: The Recreation Information Database (RIDB) API provides programmatic access to information about federal recreation areas, facilities, campsites, tours, permits, events, and activities across the United States. RIDB is the authoritative federal source for recreation data managed by Recreation.gov.
   version: '1.0'
   contact:
@@ -46,19 +46,6 @@ paths:
       - Permitentrances
 components:
   parameters:
-    Offset:
-      name: offset
-      in: query
-      description: Pagination offset
-      schema:
-        type: integer
-        default: 0
-    Query:
-      name: query
-      in: query
-      description: Free-text search query
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -67,6 +54,19 @@ components:
         type: integer
         default: 50
         maximum: 50
+    Query:
+      name: query
+      in: query
+      description: Free-text search query
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Pagination offset
+      schema:
+        type: integer
+        default: 0
   securitySchemes:
     apiKey:
       type: apiKey
