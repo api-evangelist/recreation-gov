@@ -128,12 +128,6 @@ components:
         type: integer
         default: 50
         maximum: 50
-    Query:
-      name: query
-      in: query
-      description: Free-text search query
-      schema:
-        type: string
     Offset:
       name: offset
       in: query
@@ -141,6 +135,12 @@ components:
       schema:
         type: integer
         default: 0
+    Query:
+      name: query
+      in: query
+      description: Free-text search query
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey
