@@ -95,6 +95,13 @@ paths:
       - Recareas
 components:
   parameters:
+    Offset:
+      name: offset
+      in: query
+      description: Pagination offset
+      schema:
+        type: integer
+        default: 0
     Limit:
       name: limit
       in: query
@@ -109,13 +116,6 @@ components:
       description: Free-text search query
       schema:
         type: string
-    Offset:
-      name: offset
-      in: query
-      description: Pagination offset
-      schema:
-        type: integer
-        default: 0
   securitySchemes:
     apiKey:
       type: apiKey
